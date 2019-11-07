@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/backgrond_color">
+
+    <EditText
+        android:id="@+id/EdT_UserName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="User Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/EdT_Password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="50dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="Password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EdT_UserName" />
+
+    <Button
+        android:id="@+id/btn_DoiMatKhau"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/radius_button"
+        android:onClick="Login"
+        android:text="Đăng Nhập"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EdT_Password" />
+
+    <ImageButton
+        android:id="@+id/iBtn_face"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="30dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/round_button"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_DoiMatKhau"
+        app:srcCompat="@drawable/facebook_icon" />
+
+    <ImageButton
+        android:id="@+id/iBtn_google"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="30dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/round_button"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toEndOf="@+id/iBtn_face"
+        app:layout_constraintTop_toBottomOf="@+id/btn_DoiMatKhau"
+        app:srcCompat="@drawable/google_icon" />
+
+    <ImageButton
+        android:id="@+id/iBtn_twiter"
+        android:layout_width="64dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="28dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/round_button"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toEndOf="@+id/iBtn_google"
+        app:layout_constraintTop_toBottomOf="@+id/btn_DoiMatKhau"
+        app:srcCompat="@drawable/icon_twitter" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="389dp"
+        android:layout_height="269dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <Button
+        android:id="@+id/btn_Dangky"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="150dp"
+        android:background="@drawable/radius_button"
+        android:text="Đăng ký"
+        android:onClick="DagKy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iBtn_google" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
