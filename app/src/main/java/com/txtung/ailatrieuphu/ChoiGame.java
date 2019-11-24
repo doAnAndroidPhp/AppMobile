@@ -37,9 +37,9 @@ public class ChoiGame extends AppCompatActivity {
     }
 
     public void tro_giup_5050(View view) {
-        Button button = findViewById(R.id.btn_PhuongAnB);
+        Button button = findViewById(R.id.btn_Caidat);
         button.setVisibility(View.INVISIBLE);
-        Button button2 = findViewById(R.id.btn_PhuongAnD);
+        Button button2 = findViewById(R.id.btn_DangXuat);
         button2.setVisibility(View.INVISIBLE);
         ImageButton button3 = findViewById(R.id.ibtn_5050);
         button3.setVisibility(View.INVISIBLE);

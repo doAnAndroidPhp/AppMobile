@@ -7,32 +7,18 @@
     android:background="@drawable/backgrond_color"
     tools:context=".ChonLinhVuc">
 
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="435dp"
-        android:layout_height="280dp"
+        android:layout_height="250dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
-
     <Button
-        android:id="@+id/btn_PhuongAnA"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/radius_button"
-        android:onClick="Choi_game"
-        android:text="Lịch sử"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_LinhVuc4" />
-
-    <Button
-        android:id="@+id/btn_LinhVuc2"
+        android:id="@+id/btn_Linhvuc1"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginStart="20dp"
@@ -46,30 +32,38 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
-        android:id="@+id/btn_LinhVuc3"
-        android:layout_width="match_parent"
+        android:id="@+id/btn_Linhvuc2"
+        android:layout_width="0dp"
         android:layout_height="70dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
         android:background="@drawable/radius_button"
         android:onClick="Choi_game"
         android:text="Văn học"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_LinhVuc2" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_Linhvuc1"
+        app:layout_constraintStart_toStartOf="@+id/btn_Linhvuc1"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Linhvuc1" />
 
     <Button
-        android:id="@+id/btn_LinhVuc4"
-        android:layout_width="match_parent"
+        android:id="@+id/btn_Linhvuc3"
+        android:layout_width="0dp"
         android:layout_height="70dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
         android:background="@drawable/radius_button"
         android:onClick="Choi_game"
         android:text="Nghê thuật"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_LinhVuc3" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_Linhvuc2"
+        app:layout_constraintStart_toStartOf="@+id/btn_Linhvuc2"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Linhvuc2" />
+
+    <Button
+        android:id="@+id/btn_Linhvuc4"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/radius_button"
+        android:text="Lịch sử"
+        android:onClick="Choi_game"
+        app:layout_constraintEnd_toEndOf="@+id/btn_Linhvuc3"
+        app:layout_constraintStart_toStartOf="@+id/btn_Linhvuc3"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Linhvuc3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

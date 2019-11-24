@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">AiLaTrieuPhu</string>
     <string name="Huong_dan">Mỗi lượt chơi có 4 lĩnh vực Mỗi lĩnh vực có 15 câu hỏi Trả lời đúng mỗi câu hỏi sẽ được nhận số điểm tương ứng từng câu hỏi Trả lời sai sẽ bị mất một mạng. Người chơi có 5 mạng, nếu không còn mạng nào trò chơi sẽ kết thúc, người chơi nhận được số điểm của câu gần nhất. Có 4 quyền trợ giúp 50:50 bỏ hai phương án sai 30s cộng thêm 30s suy nghĩ gọi điện thoại cho người thân hỏi ý kiến khán giả trong trường quay Ngoài ra bạn có thể dùng credit để mua thêm quyền trợ giúp ở cửa hàng.</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="tung_17">Tung_17</string>
+    <string name="todo">TODO</string>
 </resources>

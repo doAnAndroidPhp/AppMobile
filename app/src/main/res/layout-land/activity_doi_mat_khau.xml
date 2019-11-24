@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgrond_color"
+    tools:context=".TaiKhoan">
+
+    <Button
+        android:id="@+id/btn_Luu3"
+        android:layout_width="152dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="92dp"
+        android:background="@drawable/radius_button"
+        android:text="Resest"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txt_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_password" />
+
+    <Button
+        android:id="@+id/btn_Luu2"
+        android:layout_width="152dp"
+        android:layout_height="65dp"
+        android:background="@drawable/radius_button"
+        android:text="Hủy"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txt_newpass"
+        app:layout_constraintStart_toStartOf="@+id/btn_Luu3" />
+
+    <ImageView
+        android:id="@+id/img_avata"
+        android:layout_width="140dp"
+        android:layout_height="144dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="130dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/avatar" />
+
+    <EditText
+        android:id="@+id/txt_newpass"
+        android:layout_width="375dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="Mật khẩu cũ"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/txt_password"
+        app:layout_constraintStart_toStartOf="@+id/txt_password"
+        app:layout_constraintTop_toBottomOf="@+id/txt_password" />
+
+    <Button
+        android:id="@+id/btn_Luu"
+        android:layout_width="152dp"
+        android:layout_height="65dp"
+        android:background="@drawable/radius_button"
+        android:text="Đổi mật khẩu"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txt_repass"
+        app:layout_constraintStart_toStartOf="@+id/btn_Luu2" />
+
+    <TextView
+        android:id="@+id/txt_Credit"
+        android:layout_width="116dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="30dp"
+        android:text="9999"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        tools:layout_editor_absoluteY="78dp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="74dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="76dp"
+        app:layout_constraintStart_toEndOf="@+id/img_avata"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/credit_icon" />
+
+    <EditText
+        android:id="@+id/txt_password"
+        android:layout_width="375dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="50dp"
+        android:ems="10"
+        android:hint="Mật khẩu mới"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_avata" />
+
+    <EditText
+        android:id="@+id/txt_repass"
+        android:layout_width="375dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="Nhập lại mật khẩu"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/txt_newpass"
+        app:layout_constraintStart_toStartOf="@+id/txt_newpass"
+        app:layout_constraintTop_toBottomOf="@+id/txt_newpass" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
