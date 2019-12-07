@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 public class ChonLinhVuc extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
 
-    private Button Linh_vuc_1, Linh_vuc_2, Linh_vuc_3, Linh_vuc_4;
+    private Button Linh_vuc_a, Linh_vuc_b, Linh_vuc_c, Linh_vuc_d;
     private final ArrayList<cls_LinhVuc> mListLinhVuc = new ArrayList<>();
 
     @Override
@@ -28,10 +28,10 @@ public class ChonLinhVuc extends AppCompatActivity implements LoaderManager.Load
         setContentView(R.layout.activity_chon_linh_vuc);
 
         //Khai báo biến
-        Linh_vuc_1 = findViewById(R.id.btn_Linhvuc1);
-        Linh_vuc_2 = findViewById(R.id.btn_Linhvuc2);
-        Linh_vuc_3 = findViewById(R.id.btn_Linhvuc3);
-        Linh_vuc_4 = findViewById(R.id.btn_Linhvuc4);
+        Linh_vuc_a = findViewById(R.id.btn_Linhvuca);
+        Linh_vuc_b = findViewById(R.id.btn_Linhvucb);
+        Linh_vuc_c = findViewById(R.id.btn_Linhvucc);
+        Linh_vuc_d = findViewById(R.id.btn_Linhvucd);
 
         //Khởi tạo lại loader nếu loader đã tồn tại
         if(getSupportLoaderManager().getLoader(0)!=null){
@@ -69,10 +69,11 @@ public class ChonLinhVuc extends AppCompatActivity implements LoaderManager.Load
             e.printStackTrace();
         }
         //Hiển thị tên lĩnh vực lên các button
-        Linh_vuc_1.setText(mListLinhVuc.get(1).getTen_linh_vuc());
-        Linh_vuc_2.setText(mListLinhVuc.get(3).getTen_linh_vuc());
-        Linh_vuc_3.setText(mListLinhVuc.get(3).getTen_linh_vuc());
-        Linh_vuc_4.setText(mListLinhVuc.get(4).getTen_linh_vuc());
+
+        Linh_vuc_a.setText(mListLinhVuc.get(1).getTen_linh_vuc());
+        Linh_vuc_b.setText(mListLinhVuc.get(2).getTen_linh_vuc());
+        Linh_vuc_c.setText(mListLinhVuc.get(3).getTen_linh_vuc());
+        Linh_vuc_d.setText(mListLinhVuc.get(0).getTen_linh_vuc());
     }
 
     @Override

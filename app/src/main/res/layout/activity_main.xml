@@ -12,11 +12,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="50dp"
         android:ems="10"
+        android:hint="User Name"
         android:inputType="textPersonName"
-        android:text="User Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,15 +30,15 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="50dp"
         android:ems="10"
+        android:hint="Password"
         android:inputType="textPassword"
-        android:text="Password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Edt_UserName" />
 
     <Button
-        android:id="@+id/btn_DangNhap"
+        android:id="@+id/btn_DoiMatKhau"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -62,7 +62,7 @@
         android:background="@drawable/round_button"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_DangNhap"
+        app:layout_constraintTop_toBottomOf="@+id/btn_DoiMatKhau"
         app:srcCompat="@drawable/facebook_icon" />
 
     <ImageButton
@@ -75,7 +75,7 @@
         android:background="@drawable/round_button"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@+id/iBtn_face"
-        app:layout_constraintTop_toBottomOf="@+id/btn_DangNhap"
+        app:layout_constraintTop_toBottomOf="@+id/btn_DoiMatKhau"
         app:srcCompat="@drawable/google_icon" />
 
     <ImageButton
@@ -88,13 +88,13 @@
         android:background="@drawable/round_button"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@+id/iBtn_google"
-        app:layout_constraintTop_toBottomOf="@+id/btn_DangNhap"
+        app:layout_constraintTop_toBottomOf="@+id/btn_DoiMatKhau"
         app:srcCompat="@drawable/icon_twitter" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="389dp"
-        android:layout_height="269dp"
+        android:layout_height="222dp"
         android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -103,14 +103,14 @@
 
     <Button
         android:id="@+id/btn_Dangky"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="150dp"
+        android:layout_marginEnd="50dp"
         android:background="@drawable/radius_button"
-        android:text="Đăng ký"
         android:onClick="DagKy"
+        android:text="Đăng ký"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iBtn_google" />
