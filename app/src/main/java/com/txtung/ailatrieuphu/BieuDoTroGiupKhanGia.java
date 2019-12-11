@@ -17,7 +17,7 @@ public class BieuDoTroGiupKhanGia extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_bieu_do_tro_giup_khan_gia);
 
         BarChart barChart = findViewById(R.id.barchart);
 

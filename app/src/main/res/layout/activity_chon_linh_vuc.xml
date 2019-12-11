@@ -18,60 +18,51 @@
         app:srcCompat="@drawable/logo" />
 
     <Button
-        android:id="@+id/btn_Linhvuca"
+        android:id="@+id/btn_Linhvuc1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:background="@drawable/radius_button"
         android:text="Button"
+        android:onClick="Linhvuc1_click"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
-        android:id="@+id/btn_Linhvucb"
+        android:id="@+id/btn_Linhvuc2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/radius_button"
         android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/btn_Linhvuca"
-        app:layout_constraintStart_toStartOf="@+id/btn_Linhvuca"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Linhvuca" />
+        android:onClick="Linhvuc2_click"
+        app:layout_constraintEnd_toEndOf="@+id/btn_Linhvuc1"
+        app:layout_constraintStart_toStartOf="@+id/btn_Linhvuc1"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Linhvuc1" />
 
     <Button
-        android:id="@+id/btn_Linhvucc"
+        android:id="@+id/btn_Linhvuc3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/radius_button"
         android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/btn_Linhvucb"
-        app:layout_constraintStart_toStartOf="@+id/btn_Linhvucb"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Linhvucb" />
+        android:onClick="Linhvuc3_click"
+        app:layout_constraintEnd_toEndOf="@+id/btn_Linhvuc2"
+        app:layout_constraintStart_toStartOf="@+id/btn_Linhvuc2"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Linhvuc2" />
 
     <Button
-        android:id="@+id/btn_Linhvucd"
+        android:id="@+id/btn_Linhvuc4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/radius_button"
         android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/btn_Linhvucc"
-        app:layout_constraintStart_toStartOf="@+id/btn_Linhvucc"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Linhvucc" /><![CDATA[
-
-
-    -->
-
-
-
-
-
-
-
-
-
-]]>
+        android:onClick="Linhvuc4_click"
+        app:layout_constraintEnd_toEndOf="@+id/btn_Linhvuc3"
+        app:layout_constraintStart_toStartOf="@+id/btn_Linhvuc3"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Linhvuc3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

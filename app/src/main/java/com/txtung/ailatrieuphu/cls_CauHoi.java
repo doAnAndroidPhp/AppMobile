@@ -10,6 +10,17 @@ public class cls_CauHoi {
     private String phuong_an_d;
     private String dapan;
 
+    public cls_CauHoi(int id, int linh_vuc_id, String noi_dung, String phuong_an_a, String phuong_an_b, String phuong_an_c, String phuong_an_d, String dapan) {
+        this.id = id;
+        this.linh_vuc_id = linh_vuc_id;
+        this.noi_dung = noi_dung;
+        this.phuong_an_a = phuong_an_a;
+        this.phuong_an_b = phuong_an_b;
+        this.phuong_an_c = phuong_an_c;
+        this.phuong_an_d = phuong_an_d;
+        this.dapan = dapan;
+    }
+
     public int getId() {
         return id;
     }
