@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/Edt_UserName" />
 
     <Button
-        android:id="@+id/btn_DoiMatKhau"
+        android:id="@+id/btn_DangNhap"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="200dp"
@@ -56,7 +56,7 @@
         android:background="@drawable/round_button"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_DoiMatKhau"
+        app:layout_constraintTop_toBottomOf="@+id/btn_DangNhap"
         app:srcCompat="@drawable/facebook_icon" />
 
     <ImageButton
@@ -69,7 +69,7 @@
         android:background="@drawable/round_button"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@+id/iBtn_face"
-        app:layout_constraintTop_toBottomOf="@+id/btn_DoiMatKhau"
+        app:layout_constraintTop_toBottomOf="@+id/btn_DangNhap"
         app:srcCompat="@drawable/google_icon" />
 
     <ImageButton
@@ -82,7 +82,7 @@
         android:background="@drawable/round_button"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@+id/iBtn_google"
-        app:layout_constraintTop_toBottomOf="@+id/btn_DoiMatKhau"
+        app:layout_constraintTop_toBottomOf="@+id/btn_DangNhap"
         app:srcCompat="@drawable/icon_twitter" />
 
     <ImageView
@@ -103,7 +103,7 @@
         android:background="@drawable/radius_button"
         android:onClick="DagKy"
         android:text="Đăng ký"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btn_DoiMatKhau"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btn_DangNhap"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

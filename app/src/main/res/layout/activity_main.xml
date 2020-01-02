@@ -38,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/Edt_UserName" />
 
     <Button
-        android:id="@+id/btn_DoiMatKhau"
+        android:id="@+id/btn_DangNhap"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -57,25 +57,25 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:adjustViewBounds="true"
         android:background="@drawable/round_button"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_DoiMatKhau"
+        app:layout_constraintTop_toBottomOf="@+id/btn_DangNhap"
         app:srcCompat="@drawable/facebook_icon" />
 
     <ImageButton
         android:id="@+id/iBtn_google"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="10dp"
         android:adjustViewBounds="true"
         android:background="@drawable/round_button"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@+id/iBtn_face"
-        app:layout_constraintTop_toBottomOf="@+id/btn_DoiMatKhau"
+        app:layout_constraintTop_toBottomOf="@+id/btn_DangNhap"
         app:srcCompat="@drawable/google_icon" />
 
     <ImageButton
@@ -83,18 +83,18 @@
         android:layout_width="64dp"
         android:layout_height="61dp"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="10dp"
         android:adjustViewBounds="true"
         android:background="@drawable/round_button"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@+id/iBtn_google"
-        app:layout_constraintTop_toBottomOf="@+id/btn_DoiMatKhau"
+        app:layout_constraintTop_toBottomOf="@+id/btn_DangNhap"
         app:srcCompat="@drawable/icon_twitter" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="389dp"
-        android:layout_height="222dp"
+        android:layout_width="402dp"
+        android:layout_height="160dp"
         android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
