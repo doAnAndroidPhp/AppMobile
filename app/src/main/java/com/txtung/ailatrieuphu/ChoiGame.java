@@ -33,9 +33,9 @@ import java.util.Random;
 public class ChoiGame extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
 
     private Button btn_Caua, btn_Caub, btn_Cauc, btn_Caud;
-    private TextView txt_Noidung, txt_Time;
+    private TextView txt_Noidung, txt_Time, txt_Mang, txt_Cau;
     private final ArrayList<cls_CauHoi> cauHoiArrayList = new ArrayList<>();
-    private int iDemsocau;
+    private int iDemsocau=1, iMang = 5, id_linh_vuc;
     private CountDownTimer timer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +49,15 @@ public class ChoiGame extends AppCompatActivity implements LoaderManager.LoaderC
         txt_Noidung = findViewById(R.id.txt_Cauhoi);
         txt_Time = findViewById(R.id.txt_Time);
 
-        timer=new CountDownTimer(30000, 1000) {
+        txt_Mang = findViewById(R.id.txt_Mang);
+        txt_Mang.setText("X "+ iMang);
+        txt_Cau = findViewById(R.id.txt_Cau);
+        txt_Cau.setText(""+iDemsocau);
+        Intent intent = getIntent();
+        id_linh_vuc = intent.getIntExtra("id_linh_vuc",0);
+
+        //Đếm thời gian
+        timer=new CountDownTimer(20000, 1000) {
 
             @Override
             public void onTick(long l) {
@@ -83,7 +91,8 @@ public class ChoiGame extends AppCompatActivity implements LoaderManager.LoaderC
     @NonNull
     @Override
     public Loader<String> onCreateLoader(int id, @Nullable Bundle args) {
-        return new CauHoiLoader(this);
+        id = id_linh_vuc;
+        return new CauHoiLoader(this, id);
     }
 
     @Override
@@ -204,10 +213,53 @@ public class ChoiGame extends AppCompatActivity implements LoaderManager.LoaderC
             btn_Cauc.setText(cauHoiArrayList.get(iDemsocau).getPhuong_an_c());
             btn_Caud.setText(cauHoiArrayList.get(iDemsocau).getPhuong_an_d());
         }
-
+    }
+    public void DoiCauHoi(){
+        iDemsocau +=1;
+        txt_Cau.setText(""+iDemsocau);
+        timer.cancel(); // cancel
+        timer.start();  // then restart
+        if(iDemsocau< cauHoiArrayList.size()){
+            txt_Noidung.setText(cauHoiArrayList.get(iDemsocau).getNoi_dung());
+            btn_Caua.setText(cauHoiArrayList.get(iDemsocau).getPhuong_an_a());
+            btn_Caub.setText(cauHoiArrayList.get(iDemsocau).getPhuong_an_b());
+            btn_Cauc.setText(cauHoiArrayList.get(iDemsocau).getPhuong_an_c());
+            btn_Caud.setText(cauHoiArrayList.get(iDemsocau).getPhuong_an_d());
+    }
     }
     @Override
     public void onLoaderReset(@NonNull Loader<String> loader) {
 
     }
+
+    public void btn_CauA(View view) {
+        String a = btn_Caua.getText().toString();
+        String b = cauHoiArrayList.get(iDemsocau).getDapan();
+        if(a.equals(b)&& iDemsocau<15){
+            DoiCauHoi();
+
+        }
+    }
+    public void btn_CauB(View view) {
+        String a = btn_Caub.getText().toString();
+        String b = cauHoiArrayList.get(iDemsocau).getDapan();
+        if(a.equals(b)&& iDemsocau<15){
+            DoiCauHoi();
+        }
+    }
+    public void btn_CauC(View view) {
+        String a = btn_Cauc.getText().toString();
+        String b = cauHoiArrayList.get(iDemsocau).getDapan();
+        if(a.equals(b)&& iDemsocau<15){
+            DoiCauHoi();
+        }
+    }
+    public void btn_CauD(View view) {
+        String a = btn_Caud.getText().toString();
+        String b = cauHoiArrayList.get(iDemsocau).getDapan();
+        if(a.equals(b)&& iDemsocau<15){
+            DoiCauHoi();
+        }
+    }
+
 }

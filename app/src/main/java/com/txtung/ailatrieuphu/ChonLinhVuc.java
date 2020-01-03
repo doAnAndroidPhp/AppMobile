@@ -21,7 +21,7 @@ public class ChonLinhVuc extends AppCompatActivity implements LoaderManager.Load
 
     private Button Linh_vuc_1, Linh_vuc_2, Linh_vuc_3, Linh_vuc_4;
     private final ArrayList<cls_LinhVuc> mListLinhVuc = new ArrayList<>();
-    int id_linh_vuc;
+    int id_linh_vuc=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,26 +78,26 @@ public class ChonLinhVuc extends AppCompatActivity implements LoaderManager.Load
 
     public void Linhvuc1_click(View view) {
         Intent intent = new Intent(this, ChoiGame.class);
-        id_linh_vuc = mListLinhVuc.get(1).getId();
-        intent.putExtra("Id_linh_vuc", id_linh_vuc);
+        id_linh_vuc = mListLinhVuc.get(0).getId();
+        intent.putExtra("id_linh_vuc", id_linh_vuc);
         startActivity(intent);
     }
     public void Linhvuc2_click(View view) {
         Intent intent = new Intent(this, ChoiGame.class);
-        id_linh_vuc = mListLinhVuc.get(2).getId();
-        intent.putExtra("Id_linh_vuc", id_linh_vuc);
+        id_linh_vuc = mListLinhVuc.get(1).getId();
+        intent.putExtra("id_linh_vuc", id_linh_vuc);
         startActivity(intent);
     }
     public void Linhvuc3_click(View view) {
         Intent intent = new Intent(this, ChoiGame.class);
-        id_linh_vuc = mListLinhVuc.get(3).getId();
-        intent.putExtra("Id_linh_vuc", id_linh_vuc);
+        id_linh_vuc = mListLinhVuc.get(2).getId();
+        intent.putExtra("id_linh_vuc", id_linh_vuc);
         startActivity(intent);
     }
     public void Linhvuc4_click(View view) {
         Intent intent = new Intent(this, ChoiGame.class);
-        id_linh_vuc = mListLinhVuc.get(4).getId();
-        intent.putExtra("Id_linh_vuc", id_linh_vuc);
+        id_linh_vuc = mListLinhVuc.get(3).getId();
+        intent.putExtra("id_linh_vuc", id_linh_vuc);
         startActivity(intent);
     }
 }

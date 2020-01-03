@@ -7,9 +7,10 @@ import androidx.annotation.Nullable;
 import androidx.loader.content.AsyncTaskLoader;
 
 public class CauHoiLoader extends AsyncTaskLoader<String> {
-    int id;
-    public CauHoiLoader(@NonNull Context context) {
+    int linhvuc_id;
+    public CauHoiLoader(@NonNull Context context, int id) {
         super(context);
+        linhvuc_id = id;
     }
     @Override
     protected void onStartLoading() {
@@ -20,6 +21,6 @@ public class CauHoiLoader extends AsyncTaskLoader<String> {
     @Nullable
     @Override
     public String loadInBackground() {
-        return NetworkUtils.getJSONData("cau-hoi?linh_vuc=4","GET");
+        return NetworkUtils.getJSONData("cau-hoi?linh_vuc="+linhvuc_id,"GET");
     }
 }

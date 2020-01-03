@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
 
    // Khai báo biến
-    private Button btnDangnhap, btnDângky;
+    private Button btnDangnhap, btnDangky;
     private EditText EdtUsername;
     private EditText EdtPassword;
     private ImageButton iBtnGoogle, iBtnFace, iBtnTwiter;
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Khởi tạo giá trị
         btnDangnhap = findViewById(R.id.btn_DangNhap);
-        btnDângky = findViewById(R.id.btn_Dangky);
+        btnDangky = findViewById(R.id.btn_Dangky);
         EdtUsername = findViewById(R.id.Edt_UserName);
         iBtnFace = findViewById(R.id.iBtn_face);
         iBtnGoogle = findViewById(R.id.iBtn_google);
@@ -90,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
                         }
                         else
                         {
-                            Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),  " Sai tên đăng nhập hoặc mật khẩu", Toast.LENGTH_LONG).show();
                         }
 
                     }
