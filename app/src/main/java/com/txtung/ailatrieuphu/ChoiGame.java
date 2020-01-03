@@ -9,6 +9,7 @@ import androidx.loader.content.Loader;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -43,10 +44,13 @@ import java.util.Random;
 public class ChoiGame extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
 
     private Button btn_Caua, btn_Caub, btn_Cauc, btn_Caud;
-    private TextView txt_Noidung, txt_Time, txt_Mang, txt_Cau;
+    private TextView txt_Noidung, txt_Time, txt_Mang, txt_Cau, txt_Credit, txt_Ten;
     private final ArrayList<cls_CauHoi> cauHoiArrayList = new ArrayList<>();
     private int iDemsocau=0, iMang = 5, id_linh_vuc;
     private CountDownTimer timer;
+    private String sharedPrefFile = "com.txtung.ailatrieuphu";
+    private SharedPreferences mPreferences;
+    public cls_TaiKhoan Taikhoan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +62,11 @@ public class ChoiGame extends AppCompatActivity implements LoaderManager.LoaderC
         btn_Caud = findViewById(R.id.btn_CauD);
         txt_Noidung = findViewById(R.id.txt_Cauhoi);
         txt_Time = findViewById(R.id.txt_Time);
+        txt_Ten = findViewById(R.id.txt_Name);
+        txt_Credit = findViewById(R.id.txt_Credit);
+        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+        LayThongTin();
+
 
         txt_Mang = findViewById(R.id.txt_Mang);
         txt_Mang.setText("X "+ iMang);
@@ -244,6 +253,44 @@ public class ChoiGame extends AppCompatActivity implements LoaderManager.LoaderC
 
     }
 
+    public void LayThongTin(){
+        final String token = mPreferences.getString("TOKEN", "");
+        String url = "http://10.0.2.2:8000/api/lay-thong-tin";
+        StringRequest request = new StringRequest(Request.Method.GET, url , new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+
+                    Taikhoan = new cls_TaiKhoan(jsonObject.getInt("id"),
+                            jsonObject.getString("ten_dang_nhap"),
+                            "",
+                            jsonObject.getString("email"),
+                            jsonObject.getString("hinh_dai_dien"),
+                            jsonObject.getInt("credit"),
+                            jsonObject.getInt("diem_cao_nhat"));
+                    txt_Ten.setText(jsonObject.getString("ten_dang_nhap"));
+                    txt_Credit.setText(""+jsonObject.getInt("credit"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Content-Type", "application/json");
+                headers.put("Authorization", "Bearer " + token);
+                return headers;
+            }
+        };
+        RequestQueue mRequestQueue = Volley.newRequestQueue(this);
+        mRequestQueue.add(request);
+    }
     public void TraLoiSai(){
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.activity_tra_loi_sai);
@@ -254,12 +301,50 @@ public class ChoiGame extends AppCompatActivity implements LoaderManager.LoaderC
     public void GameOver(){
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.activity_game_over);
-        //TextView txt_Score = dialog.findViewById(R.id.txt_Score);
-        //txt_Score.setText(iDemsocau);
+        TextView txt_Score = dialog.findViewById(R.id.txt_Score);
+        txt_Score.setText(""+iDemsocau);
+        LuuLuotChoi();
         dialog.setCanceledOnTouchOutside(false);
         dialog.show();
     }
-   
+    public void LuuLuotChoi(){
+        final java.util.Date date=new java.util.Date();
+        String url = "http://10.0.2.2:8000/api/luu-luot-choi";
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {JSONObject objLogin = new JSONObject(response);
+                    boolean result = objLogin.getBoolean("status");
+                    if (result) {
+                        Toast.makeText(getApplicationContext(),  " Lưu thành công", Toast.LENGTH_LONG).show();
+
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Lưu thất bại", Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), "Server không phản hồi", Toast.LENGTH_SHORT).show();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String, String> params = new HashMap<>();
+                params.put("nguoi_choi_id",""+Taikhoan.getId());
+                params.put("so_cau",""+iDemsocau);
+                params.put("diem",""+iDemsocau+"0");
+                params.put("ngay_gio",""+date);
+                return params;
+            }
+        };
+        RequestQueue mRequestQueue = Volley.newRequestQueue(this);
+        mRequestQueue.add(stringRequest);
+    }
     public void btn_CauA(View view) {
         String a = btn_Caua.getText().toString();
         String b = cauHoiArrayList.get(iDemsocau).getDapan();

@@ -35,7 +35,7 @@ public class Menu extends AppCompatActivity {
     private TextView txtCredit, txtUsername;
     private String sharedPrefFile = "com.txtung.ailatrieuphu";
     private SharedPreferences mPreferences;
-    public cls_TaiKhoan Taikhoan;
+    public cls_TaiKhoan Taikhoan = new cls_TaiKhoan();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,8 +49,9 @@ public class Menu extends AppCompatActivity {
         //Lấy token trong sharedPreferences
         //String token = mPreferences.getString("TOKEN", "");
         //mToken.setText(token);
-        Taikhoan = new cls_TaiKhoan();
+        //Taikhoan = new cls_TaiKhoan();
         LayThongTin();
+
     }
 
     public void Choi_Ngay(View view) {
@@ -62,12 +63,10 @@ public class Menu extends AppCompatActivity {
         Intent intent = new Intent(this, HuongDan.class);
         startActivity(intent);
     }
-
     public void CaiDat(View view) {
         Intent intent = new Intent(this, CaiDat.class);
         startActivity(intent);
     }
-
     public void DangXuat(View view) {
             // Xóa token trong SharedPreferences
             SharedPreferences.Editor editor = mPreferences.edit();
@@ -88,16 +87,14 @@ public class Menu extends AppCompatActivity {
             public void onResponse(String response) {
                 try {
                         JSONObject jsonObject = new JSONObject(response);
-
-                        Taikhoan = new cls_TaiKhoan(jsonObject.getInt("id"),
-                                jsonObject.getString("ten_dang_nhap"),
-                                "",
-                                jsonObject.getString("email"),
-                                jsonObject.getString("hinh_dai_dien"),
-                                jsonObject.getInt("credit"),
-                                jsonObject.getInt("diem_cao_nhat"));
-                        txtUsername.setText(jsonObject.getString("ten_dang_nhap"));
-                        txtCredit.setText(""+jsonObject.getInt("credit"));
+                        Taikhoan.setId(jsonObject.getInt("id"));
+                        Taikhoan.setId(jsonObject.getInt("id"));
+                        Taikhoan.setTen_dang_nhap(jsonObject.getString("ten_dang_nhap"));
+                        Taikhoan.setEmail(jsonObject.getString("email"));
+                        Taikhoan.setCredit(jsonObject.getInt("credit"));
+                        Taikhoan.setDiem_cao_nhat(jsonObject.getInt("diem_cao_nhat"));
+                        txtUsername.setText(Taikhoan.getTen_dang_nhap());
+                        txtCredit.setText(""+Taikhoan.getCredit());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

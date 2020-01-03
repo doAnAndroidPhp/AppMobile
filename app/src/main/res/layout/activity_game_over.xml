@@ -11,12 +11,13 @@
         android:id="@+id/textView15"
         android:layout_width="297dp"
         android:layout_height="83dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="44dp"
         android:text="GAME OVER"
         android:textColor="@color/colorAccent"
         android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.596"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -83,8 +84,8 @@
         android:id="@+id/btn_Restar"
         android:layout_width="104dp"
         android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="52dp"
         android:background="@drawable/radius_button"
         android:onClick="Restar"
         android:text="Restar"
@@ -100,5 +101,5 @@
         android:onClick="MainMenu"
         android:text="Main Menu"
         app:layout_constraintBaseline_toBaselineOf="@+id/btn_Restar"
-        app:layout_constraintStart_toStartOf="@+id/guideline3" />
+        app:layout_constraintStart_toEndOf="@+id/btn_Restar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

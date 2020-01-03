@@ -31,7 +31,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="20dp"
-        app:layout_constraintStart_toEndOf="@+id/txtV_Name"
+        app:layout_constraintStart_toEndOf="@+id/txt_Name"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/heart" />
 
@@ -82,7 +82,7 @@
         tools:srcCompat="@drawable/credit" />
 
     <TextView
-        android:id="@+id/txtV_Name"
+        android:id="@+id/txt_Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tung_17"

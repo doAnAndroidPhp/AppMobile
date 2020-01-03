@@ -56,7 +56,7 @@
         tools:srcCompat="@drawable/credit" />
 
     <TextView
-        android:id="@+id/txtV_Name"
+        android:id="@+id/txt_Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -171,8 +171,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:background="@drawable/radius_button"
-        android:text="Button"
         android:onClick="btn_CauA"
+        android:text="Button"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_Cauhoi" />
@@ -183,8 +184,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/radius_button"
-        android:text="Button"
         android:onClick="btn_CauB"
+        android:text="Button"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/btn_CauA"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/btn_CauA"
@@ -196,8 +198,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/radius_button"
-        android:text="Button"
         android:onClick="btn_CauC"
+        android:text="Button"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/btn_CauB"
         app:layout_constraintStart_toStartOf="@+id/btn_CauB"
         app:layout_constraintTop_toBottomOf="@+id/btn_CauB" />
@@ -208,8 +211,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/radius_button"
-        android:text="Button"
         android:onClick="btn_CauD"
+        android:text="Button"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/btn_CauC"
         app:layout_constraintStart_toStartOf="@+id/btn_CauC"
         app:layout_constraintTop_toBottomOf="@+id/btn_CauC" />
