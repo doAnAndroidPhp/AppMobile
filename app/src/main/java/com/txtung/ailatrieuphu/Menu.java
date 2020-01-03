@@ -32,11 +32,10 @@ public class Menu extends AppCompatActivity {
     //Khai báo biến
    // private ImageView imgAvatar;
     //private ImageButton iBtnCapnhattaikhoan;
-    private TextView txtCredit, txtUsername, txtthongbao;
+    private TextView txtCredit, txtUsername;
     private String sharedPrefFile = "com.txtung.ailatrieuphu";
     private SharedPreferences mPreferences;
-    private String user;
-
+    public cls_TaiKhoan Taikhoan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,14 +43,13 @@ public class Menu extends AppCompatActivity {
         //Khởi tạo giá trị
         txtCredit = findViewById(R.id.txt_Credit);
         txtUsername = findViewById(R.id.txt_username);
-        txtthongbao = findViewById(R.id.txt_thongbao);
         mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
 
-        TextView mToken = findViewById(R.id.txt_token);
+        //TextView mToken = findViewById(R.id.txt_token);
         //Lấy token trong sharedPreferences
-        String token = mPreferences.getString("TOKEN", "");
-        mToken.setText(token);
-        cls_TaiKhoan Taikhoan1 = new cls_TaiKhoan();
+        //String token = mPreferences.getString("TOKEN", "");
+        //mToken.setText(token);
+        Taikhoan = new cls_TaiKhoan();
         LayThongTin();
     }
 
@@ -78,26 +76,6 @@ public class Menu extends AppCompatActivity {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
     }
-    public void goiAPI(String token) {
-
-        //String token = mPreferences.getString("TOKEN", "");
-
-        new FectAPIToken(){
-            @Override
-            protected void onPostExecute(String s) {
-                super.onPostExecute(s);
-                try {
-                    JSONObject jsonObject = new JSONObject(s);
-                    txtthongbao.setText(jsonObject.getString("message"));
-                    //mThongBao.setText(jsonObject.getString("message"));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }.execute("lay-thong-tin", "GET", token);
-
-    }
     public void Tai_Khoan(View view) {
         Intent intent = new Intent(this, TaiKhoan.class);
         startActivity(intent);
@@ -111,7 +89,7 @@ public class Menu extends AppCompatActivity {
                 try {
                         JSONObject jsonObject = new JSONObject(response);
 
-                        cls_TaiKhoan Taikhoan = new cls_TaiKhoan(jsonObject.getInt("id"),
+                        Taikhoan = new cls_TaiKhoan(jsonObject.getInt("id"),
                                 jsonObject.getString("ten_dang_nhap"),
                                 "",
                                 jsonObject.getString("email"),

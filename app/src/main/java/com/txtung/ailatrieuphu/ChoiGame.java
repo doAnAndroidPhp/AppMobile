@@ -15,7 +15,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
@@ -28,6 +36,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class ChoiGame extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
@@ -35,7 +45,7 @@ public class ChoiGame extends AppCompatActivity implements LoaderManager.LoaderC
     private Button btn_Caua, btn_Caub, btn_Cauc, btn_Caud;
     private TextView txt_Noidung, txt_Time, txt_Mang, txt_Cau;
     private final ArrayList<cls_CauHoi> cauHoiArrayList = new ArrayList<>();
-    private int iDemsocau=1, iMang = 5, id_linh_vuc;
+    private int iDemsocau=0, iMang = 5, id_linh_vuc;
     private CountDownTimer timer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +62,7 @@ public class ChoiGame extends AppCompatActivity implements LoaderManager.LoaderC
         txt_Mang = findViewById(R.id.txt_Mang);
         txt_Mang.setText("X "+ iMang);
         txt_Cau = findViewById(R.id.txt_Cau);
-        txt_Cau.setText(""+iDemsocau);
+        txt_Cau.setText(""+1);
         Intent intent = getIntent();
         id_linh_vuc = intent.getIntExtra("id_linh_vuc",0);
 
@@ -116,8 +126,8 @@ public class ChoiGame extends AppCompatActivity implements LoaderManager.LoaderC
         catch (JSONException e) {
             e.printStackTrace();
         }
-        iDemsocau = 0;
         //Hiển thị câu hỏi lên các button
+        iDemsocau = 0;
         txt_Noidung.setText(cauHoiArrayList.get(0).getNoi_dung());
         btn_Caua.setText(cauHoiArrayList.get(0).getPhuong_an_a());
         btn_Caub.setText(cauHoiArrayList.get(0).getPhuong_an_b());
@@ -216,10 +226,12 @@ public class ChoiGame extends AppCompatActivity implements LoaderManager.LoaderC
     }
     public void DoiCauHoi(){
         iDemsocau +=1;
-        txt_Cau.setText(""+iDemsocau);
+        int i = iDemsocau;
+        i+=1;
+        txt_Cau.setText(""+i);
         timer.cancel(); // cancel
         timer.start();  // then restart
-        if(iDemsocau< cauHoiArrayList.size()){
+        if(iDemsocau<= cauHoiArrayList.size()){
             txt_Noidung.setText(cauHoiArrayList.get(iDemsocau).getNoi_dung());
             btn_Caua.setText(cauHoiArrayList.get(iDemsocau).getPhuong_an_a());
             btn_Caub.setText(cauHoiArrayList.get(iDemsocau).getPhuong_an_b());
@@ -232,33 +244,100 @@ public class ChoiGame extends AppCompatActivity implements LoaderManager.LoaderC
 
     }
 
+    public void TraLoiSai(){
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.activity_tra_loi_sai);
+        dialog.getWindow().setLayout(900,1200);
+        dialog.show();
+        dialog.setCanceledOnTouchOutside(true);
+    }
+    public void GameOver(){
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.activity_game_over);
+        //TextView txt_Score = dialog.findViewById(R.id.txt_Score);
+        //txt_Score.setText(iDemsocau);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
+    }
+   
     public void btn_CauA(View view) {
         String a = btn_Caua.getText().toString();
         String b = cauHoiArrayList.get(iDemsocau).getDapan();
-        if(a.equals(b)&& iDemsocau<15){
+        if(a.equals(b)&& iDemsocau<14){
             DoiCauHoi();
-
+        }
+        else if(!a.equals(b)){
+            if(iMang>0){
+                iMang--;
+                txt_Mang.setText("x" + iMang);
+                TraLoiSai();
+            }
+            else if(iMang==0){
+                GameOver();
+            }
+        }
+        else if(a.equals(b)&& iDemsocau==14){
+            GameOver();
         }
     }
     public void btn_CauB(View view) {
         String a = btn_Caub.getText().toString();
         String b = cauHoiArrayList.get(iDemsocau).getDapan();
-        if(a.equals(b)&& iDemsocau<15){
+        if(a.equals(b)&& iDemsocau<14){
             DoiCauHoi();
+        }
+        else if(!a.equals(b)){
+            if(iMang>0){
+                iMang--;
+                txt_Mang.setText("x" + iMang);
+                TraLoiSai();
+            }
+            else if(iMang==0){
+                GameOver();
+            }
+        }
+        else if(a.equals(b)&& iDemsocau==14){
+            GameOver();
         }
     }
     public void btn_CauC(View view) {
         String a = btn_Cauc.getText().toString();
         String b = cauHoiArrayList.get(iDemsocau).getDapan();
-        if(a.equals(b)&& iDemsocau<15){
+        if(a.equals(b)&& iDemsocau<14){
             DoiCauHoi();
+        }
+        else if(!a.equals(b)){
+            if(iMang>0){
+                iMang--;
+                txt_Mang.setText("x" + iMang);
+                TraLoiSai();
+            }
+            else if(iMang==0){
+                GameOver();
+            }
+        }
+        else if(a.equals(b)&& iDemsocau==14){
+            GameOver();
         }
     }
     public void btn_CauD(View view) {
         String a = btn_Caud.getText().toString();
         String b = cauHoiArrayList.get(iDemsocau).getDapan();
-        if(a.equals(b)&& iDemsocau<15){
+        if(a.equals(b)&& iDemsocau<14){
             DoiCauHoi();
+        }
+        else if(!a.equals(b)){
+            if(iMang>0){
+                iMang--;
+                txt_Mang.setText("x" + iMang);
+                TraLoiSai();
+            }
+            else if(iMang==0){
+                GameOver();
+            }
+        }
+        else if(a.equals(b)&& iDemsocau==14){
+            GameOver();
         }
     }
 
