@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TraLoiSai"></activity>
+        <activity android:name=".LichSuChoiGame"></activity>
+        <activity android:name=".TraLoiSai" />
         <activity android:name=".GameOver" />
         <activity android:name=".BieuDoTroGiupKhanGia" />
         <activity android:name=".BangXepHang" />

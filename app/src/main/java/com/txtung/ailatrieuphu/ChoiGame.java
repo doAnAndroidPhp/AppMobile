@@ -85,7 +85,8 @@ public class ChoiGame extends AppCompatActivity implements LoaderManager.LoaderC
 
             @Override
             public void onFinish() {
-                txt_Time.setText("0");
+                txt_Time.setText("Hết giờ!");
+                GameOver();
             }
         }.start();
 
@@ -135,6 +136,7 @@ public class ChoiGame extends AppCompatActivity implements LoaderManager.LoaderC
         catch (JSONException e) {
             e.printStackTrace();
         }
+
         //Hiển thị câu hỏi lên các button
         iDemsocau = 0;
         txt_Noidung.setText(cauHoiArrayList.get(0).getNoi_dung());
@@ -142,8 +144,7 @@ public class ChoiGame extends AppCompatActivity implements LoaderManager.LoaderC
         btn_Caub.setText(cauHoiArrayList.get(0).getPhuong_an_b());
         btn_Cauc.setText(cauHoiArrayList.get(0).getPhuong_an_c());
         btn_Caud.setText(cauHoiArrayList.get(0).getPhuong_an_d());
-    }
-
+        }
     //CÁC QUYỀN TRỢ GIÚP
     public void tro_giup_call(View view) {
 
@@ -200,16 +201,61 @@ public class ChoiGame extends AppCompatActivity implements LoaderManager.LoaderC
 
         dialog.show();
 
+        ImageButton button = findViewById(R.id.ibtn_khangia);
+        button.setVisibility(View.INVISIBLE);
     }
 
     public void tro_giup_them_30s(View view) {
+        int giay = Integer.parseInt(txt_Time.getText().toString());
+        giay +=30000;
+        timer.cancel();
+        timer=new CountDownTimer(giay, 1000) {
+
+            @Override
+            public void onTick(long l) {
+                txt_Time.setText("" + l/1000);
+            }
+
+            @Override
+            public void onFinish() {
+                txt_Time.setText("Hết giờ!");
+                GameOver();
+            }
+        }.start();
+        ImageButton button3 = findViewById(R.id.ibtn_30s);
+        button3.setVisibility(View.INVISIBLE);
     }
 
     public void tro_giup_5050(View view) {
-        Button button = findViewById(R.id.btn_CauA);
-        button.setVisibility(View.INVISIBLE);
-        Button button2 = findViewById(R.id.btn_CauB);
-        button2.setVisibility(View.INVISIBLE);
+        String a = btn_Caua.getText().toString();
+        String b = btn_Caub.getText().toString();
+        String c = btn_Cauc.getText().toString();
+        String d = btn_Caud.getText().toString();
+        String e = cauHoiArrayList.get(iDemsocau).getDapan();
+            if(!a.equals(e)&&!b.equals(e)){
+                btn_Caua.setVisibility(View.INVISIBLE);
+                btn_Caub.setVisibility(View.INVISIBLE);
+            }
+        else if(!a.equals(e)&&!c.equals(e)){
+            btn_Caua.setVisibility(View.INVISIBLE);
+            btn_Cauc.setVisibility(View.INVISIBLE);
+        }
+        else if(!a.equals(e)&&!d.equals(e)){
+            btn_Caua.setVisibility(View.INVISIBLE);
+            btn_Caud.setVisibility(View.INVISIBLE);
+        }
+        else if(!b.equals(e)&&!c.equals(e)){
+            btn_Caub.setVisibility(View.INVISIBLE);
+            btn_Cauc.setVisibility(View.INVISIBLE);
+        }
+            else if(!b.equals(e)&&!d.equals(e)){
+                btn_Caub.setVisibility(View.INVISIBLE);
+                btn_Caud.setVisibility(View.INVISIBLE);
+            }
+            else if(!c.equals(e)&&!d.equals(e)){
+                btn_Cauc.setVisibility(View.INVISIBLE);
+                btn_Caud.setVisibility(View.INVISIBLE);
+            }
         ImageButton button3 = findViewById(R.id.ibtn_5050);
         button3.setVisibility(View.INVISIBLE);
     }
@@ -234,6 +280,10 @@ public class ChoiGame extends AppCompatActivity implements LoaderManager.LoaderC
         }
     }
     public void DoiCauHoi(){
+        btn_Caua.setVisibility(View.VISIBLE);
+        btn_Caub.setVisibility(View.VISIBLE);
+        btn_Cauc.setVisibility(View.VISIBLE);
+        btn_Caud.setVisibility(View.VISIBLE);
         iDemsocau +=1;
         int i = iDemsocau;
         i+=1;
@@ -302,7 +352,19 @@ public class ChoiGame extends AppCompatActivity implements LoaderManager.LoaderC
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.activity_game_over);
         TextView txt_Score = dialog.findViewById(R.id.txt_Score);
-        txt_Score.setText(""+iDemsocau);
+        TextView txt_Best = dialog.findViewById(R.id.txt_Bestscore);
+        Button btn_restar = dialog.findViewById(R.id.btn_Restar);
+        Button btn_menu = dialog.findViewById(R.id.btn_Mainmenu);
+        //btn_restar.setOnClickListener();
+        txt_Score.setText(""+iDemsocau+"0");
+        int diem = iDemsocau;
+        diem = diem*10;
+        if(diem > Taikhoan.getDiem_cao_nhat()){
+            txt_Best.setText(""+iDemsocau+"0");
+        }
+        else{
+            txt_Best.setText(""+Taikhoan.getDiem_cao_nhat());
+        }
         LuuLuotChoi();
         dialog.setCanceledOnTouchOutside(false);
         dialog.show();

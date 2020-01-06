@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgrond_color"
-    tools:context=".TaiKhoan">
+    tools:context=".DoiMatKhau">
 
     <ImageView
         android:id="@+id/img_avata"
@@ -38,10 +38,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/radius_button"
         android:text="Đổi mật khẩu"
+        android:onClick="DoiMatKhau"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -112,7 +113,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="140dp"
         android:layout_marginEnd="50dp"
         android:ems="10"
         android:inputType="textPassword"
@@ -134,5 +135,18 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_newpass" />
+
+    <TextView
+        android:id="@+id/txt_Username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="197dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="156dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_avata" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

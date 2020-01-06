@@ -6,6 +6,13 @@ public class cls_Credit {
     private int credit;
     private int so_tien;
 
+    public cls_Credit(int id, String ten_goi, int credit, int so_tien) {
+        this.id = id;
+        this.ten_goi = ten_goi;
+        this.credit = credit;
+        this.so_tien = so_tien;
+    }
+
     public int getId() {
         return id;
     }

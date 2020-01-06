@@ -24,7 +24,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="130dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="56dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,15 +36,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="72dp"
         android:layout_marginEnd="130dp"
         android:text="9999"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/img_avata"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/img_avata" />
 
     <Button
         android:id="@+id/btn_LichSu"
@@ -55,6 +55,7 @@
         android:layout_marginEnd="20dp"
         android:background="@drawable/radius_button"
         android:text="Lịch sử"
+        android:onClick="LichSu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,10 +94,24 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="108dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/radius_button"
         android:text="ĐỔI MẬT KHẨU"
+        android:onClick="Doi_Mat_Khau"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_avata" />
+
+    <TextView
+        android:id="@+id/txt_Usrname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="184dp"
+        android:layout_marginEnd="169dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_avata" />
